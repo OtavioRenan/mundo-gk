@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-br"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+      
+	<head>
+		<meta charset="UTF-8"/>
+		<title>Mundo GK Administração</title>
+						
+		<!-- Links do bootstrao que vem junto ao thymeleaf -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
+			  integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" 
+			  crossorigin="anonymous">
+		<link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet"/>
+		<link th:href="@{/webjars/bootstrap/css/bootstrap-theme.min.css}" rel="stylesheet"/>
+			  
+		<!-- Links do bootstrap que eu aloquei na pasta staric -->
+        <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet">
+        <link href="../../static/style/blog.css" rel="stylesheet" th:href="@{/style/blog.css}">
+        <link href="../../static/style/body.css" rel="stylesheet" th:href="@{/style/body.css}">
+        <link href="../../static/style/bootstrap.min.css" rel="stylesheet" th:href="@{/style/bootstrap.mim.css}">
+        <link href="../../static/style/body.css" th:href="@{/style/body.css}" rel="stylesheet" type="text/css">   
+		<link href="../../static/css/bootstrap-datepicker.css" th:href="@{/css/bootstrap-datepicker.css}" rel="stylesheet" type="text/css">
+
+
+	</head>
+	<body class="body-class  body-layout">
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" 
+	    		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" 
+	    		crossorigin="anonymous"></script>
+	    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" 
+	    		integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" 
+	    		crossorigin="anonymous"></script>
+	    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" 
+	    		integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" 
+	    		crossorigin="anonymous"></script>
+	    		
+	    <!-- Agenda -->
+	    <script src="../../static/js/bootstrap-datepicker.min.js" th:src="@{/js/bootstrap-datepicker.min.js}"></script>
+	    <script src="../../static/locales/bootstrap-datepicker.pt-BR.min.js" th:src="@{/locales/bootstrap-datepicker.pt-BR.min.js}"></script>
+	    		
+	    <div class="container bg-white div-trans">
+	    	<header class="blog-header py-3">
+	        	<div class="row flex-nowrap justify-content-between align-items-center">
+	            	<div class="col-4 pt-1">
+	                	<a class="text-muted" href=""></a>
+	                </div>
+	                <div class="col-4 text-center">
+	                	<a class="blog-header-logo text-dark" href="#">Edição do blog</a>
+	                </div>
+	                <div class="col-4 d-flex justify-content-end align-items-center">
+	                </div>
+	        	</div>
+	    	</header>	
+	        <div class="nav-scroller py-1 mb-2">
+	        	<nav class="nav d-flex justify-content-between">
+	            	<a class="p-2 text-muted" href="/">HOME</a>	                    
+	                <a class="p-2 text-muted" href="/main/edit">EDITAR</a>
+	            </nav>
+	        </div>
+	     </div>	
+	    		
+	    		<div class="container  div-trans div-opacity">
+	    			<form class="navbar-form navbar-left ajax-form" method="POST" th:action="@{/main/panel}" th:object="${artigo}">
+		    		<div class="row">			    	
+	  				    <div class="col-md-6">
+	  				    	<label for="validationCustum01">Titulo: </label>
+							<input type="text" class="form-control" name="titulo" th:field="*{titulo}">											
+						</div>
+						<div class="col-md-6">
+	  				    	<label for="validationCustum02">Autor: </label>
+	  				    	<input type="text" class="form-control" name="autor" th:field="*{autor}">				
+						</div>
+					</div><br/><!-- div row -->	
+					<div class="row">
+	  				    <div class="col-md-6">
+	  				    	<div class="text-center">
+	  				    		<label for="validationCustum03">Entidade: </label>
+	  				    	</div>
+	  				    	<div class="text-center">
+	  				    	<select name="id_entidade" id="id_entidade">
+									<option>Selecione a Entidade</option>
+									<option value="1">Marvel Comics</option>
+									<option value="2">DC Comics</option>
+									<option value="3">Guerreiros Z</option>
+									<option value="4">Outros</option>
+							</select>
+	  				    	</div>								 														
+						</div>		    		
+				    	<div class="col-md-6">
+			  				<label for="validationCustum04">Data de Publicação: </label>			  				
+						    	<div class="input-group date center">
+								    <input type="text" class="form-control" id="data_publicacao" name="data_publicacao" th:field="*{data_publicacao}">
+								    <div class="input-group-addon">
+								        <span class="glyphicon glyphicon-th"></span>
+								    </div>
+								</div>	
+				    	</div>					
+		    		</div><br/><!-- div row -->		    	
+		    		<div class="row">
+		    			<div class="col-md-4" >		    				
+		    				<h3 class="text-left">Artigo</h3>
+		    			</div><!-- col-md-4 -->			    		
+		    			<div class="col-md-8" >
+		    				<div class="alert alert-danger alert-dismissible" role="alert" th:if="${#fields.hasAnyErrors()}">		    					
+		    						<div th:each="erro: ${#fields.detailedErrors()}">
+			    						<i class="fa fa-exclamation-circle"></i>
+			    						<span th:text="${erro.message}">Mensagem de erro!</span>
+			    					</div>
+		    						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+		    							<span aria-hidden="true">&times;</span>
+		    						</button>	
+		    				</div><!-- alert alert-danger -->
+		    			</div><!-- col-md-4 -->	    	    		
+		    		</div><br/><!-- row -->
+	  		 		<div class="row">
+		    			<div id="dvCentro" class="col-md-12">
+							<textarea id="txt_artigo" name="txt_artigo" th:field="*{txt_artigo}"></textarea>
+						</div>						        
+						<script src="../../static/ckeditor/ckeditor.js" th:src="@{/ckeditor/ckeditor.js}"></script>
+						<script>
+						     CKEDITOR.replace( 'txt_artigo' );
+						</script>			
+					</div><br/>
+					<div class="row">		
+						<div class="col-md-12 text-center">
+							<button type="submit" class="btn btn-defaut"> Enviar Artigo </button>
+						</div>		
+					</div>			
+					</form>
+				</div>
+		<!-- Script do calendário -->
+		<script type="text/javascript">
+			$('#data_publicacao').datepicker({
+			    format: 'dd/mm/yyyy',
+			    language: "pt-BR",
+			    startDate: '+0',
+			});
+		</script>
+		
+		<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+		<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+		
+	</body>
+</html>

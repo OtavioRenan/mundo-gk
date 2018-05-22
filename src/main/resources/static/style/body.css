@@ -1,0 +1,12 @@
+.body-layout{
+    background-image: url("../image/dc_vs_marvel__2016__by_timothylaskey-d9yju4l.jpg");
+    background-attachment: fixed;
+    background-repeat: no-repeat;    
+    background-size: 100% 100%;
+}
+
+/*classe de opacidade da div*/
+.div-opacity{	
+	background-color: rgba(255,255,255, 0.7);
+}
+
